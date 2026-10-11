@@ -9,7 +9,7 @@
 We prove the sharp size of the finite-frame Schur correction for the first $m$ pole-killing odd derivatives of the actual Riemann theta kernel. For every fixed $m\ge1$,
 
 $$
-\|E_{m,\beta}\|\asymp_m
+\lVert E_{m,\beta}\rVert\asymp_m
 \beta\bigl(\log(1/\beta)\bigr)^{4m+5/2}
 \qquad (\beta\downarrow0).
 $$
@@ -22,12 +22,12 @@ The two-sided order has explicitly defined positive constants and a specified fu
 
 | Result | Exact scope |
 | --- | --- |
-| **Sharp coupling rate** | Theorem 1.1 gives matching upper and lower bounds $a_m\beta L^{4m+5/2}\le\|E_{m,\beta}\|\le A_m\beta L^{4m+5/2}$ for $L=\log(1/\beta)$ and every $0<\beta\le e^{-\ell_m}$. Constants and thresholds depend on the fixed $m$. |
-| **Constructive charge cancellation** | Lemma 3.1 cancels both half-line source charges, proves actual membership in $\operatorname{Ran}G^{1/2}$ and controls the entire integrated theta-tail error. Proposition 3.2 gives the full-symbol resolvent upper rate. |
+| **Sharp coupling rate** | Theorem 1.1 gives matching upper and lower bounds $a_m\beta L^{4m+5/2}\le\lVert E_{m,\beta}\rVert\le A_m\beta L^{4m+5/2}$ for $L=\log(1/\beta)$ and every $0<\beta\le e^{-\ell_m}$. Constants and thresholds depend on the fixed $m$. |
+| **Constructive charge cancellation** | Lemma 3.1 cancels both half-line source charges, proves actual membership in $\mathrm{Ran}(G^{1/2})$ and controls the entire integrated theta-tail error. Proposition 3.2 gives the full-symbol resolvent upper rate. |
 | **Matching actual theta lower bound** | Lemma 4.1 and Proposition 4.2 use finite derivative polynomials, the complete theta lattice and odd box tests. No simplicity or location assumption on zeta zeros is used. |
-| **Low-energy spectral mass** | Theorem 1.1 gives a pointwise upper bound for $\|U^*\mathbf1_{(0,t]}(G)U\|$. A matching pointwise lower bound is not asserted. |
+| **Low-energy spectral mass** | Theorem 1.1 gives a pointwise upper bound for $\lVert U^*\mathbf{1}_{(0,t]}(G)U\rVert$. A matching pointwise lower bound is not asserted. |
 | **Exact signed Schur reduction** | Lemma 5.1 and Proposition 5.2 retain the prime-shift operator, all prime powers and both pole terms, and identify the exact finite correction. |
-| **Exact change of metric** | Proposition 7.1 eliminates the known equality space before gamma normalization. The correction cancels exactly, while the same logarithmic growth appears in $\|V_\beta\|^2-1$. The remaining signed form is unchanged by congruence. |
+| **Exact change of metric** | Proposition 7.1 eliminates the known equality space before gamma normalization. The correction cancels exactly, while the same logarithmic growth appears in $\lVert V_\beta\rVert^2-1$. The remaining signed form is unchanged by congruence. |
 
 All definitions, domain arguments, constants and proofs are in the standalone **14-page manuscript**. The conclusion states the limits: no common constants for growing frames, no complementary-form sign and no unconditional positivity theorem for all Li coefficients.
 
