@@ -8,4 +8,6 @@ This release contains the complete 14-page English paper, standalone LaTeX sourc
 
 The manuscript compiled successfully. Separate internal rate, equality and metric reconstructions were completed before release. Publication files and archived bytes were checked. External peer review, journal acceptance and formal proof-assistant verification are not claimed.
 
-The Zenodo record and version DOI will be added after archiving. The tag and release assets will remain frozen; later citation updates appear on the default branch.
+**Version DOI:** [10.5281/zenodo.23298499](https://doi.org/10.5281/zenodo.23298499) · [Published Zenodo record](https://zenodo.org/records/23298499) · [All-versions DOI](https://doi.org/10.5281/zenodo.23298498).
+
+The downloaded Zenodo ZIP matches all 12 tracked files at release commit `a8cf3560d5fbec587b23a45c93550681eeb27cd7`, including the frozen PDF and standalone LaTeX source. All 11 source-manifest entries and all four GitHub release asset digests passed verification. The tag and release assets remain frozen; the default branch adds the issued DOI in a separate documentation commit.

@@ -2,6 +2,8 @@
 
 **In a signed Weil-form realization · Leonard van Hemert · Mathematical preprint · Version 1.0.0 · 11 October 2026**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23298499.svg)](https://doi.org/10.5281/zenodo.23298499)
+
 [Read the paper](paper/coupling-estimates.pdf) · [Version 1.0.0 release](https://github.com/LeonardSEO/theta-coupling-estimates/releases/tag/v1.0.0) · [LaTeX source](paper/coupling-estimates.tex) · [Citation metadata](CITATION.cff)
 
 We prove the sharp size of the finite-frame Schur correction for the first $m$ pole-killing odd derivatives of the actual Riemann theta kernel. For every fixed $m\ge1$,
@@ -38,7 +40,9 @@ The tagged release contains:
 - `theta-coupling-estimates-v1.0.0-source.tar.gz` — complete publication source package;
 - `SHA256SUMS` — checksums of the three release assets.
 
-The Zenodo version DOI and archive link will be added after the enabled GitHub integration has archived this release.
+**Version 1.0.0 DOI:** [10.5281/zenodo.23298499](https://doi.org/10.5281/zenodo.23298499). The [published Zenodo record](https://zenodo.org/records/23298499) preserves the complete tagged repository, including the PDF and LaTeX source. The [all-versions DOI](https://doi.org/10.5281/zenodo.23298498) identifies this publication across future versions.
+
+The Zenodo ZIP was downloaded and checked byte for byte against all 12 files at the release commit. The tag and release assets are frozen. This default branch adds the issued DOI and archive verification in a separate documentation commit; reproduce the original release from `v1.0.0`.
 
 The results are analytic. No numerical certificate is used in their proofs, so the release contains no unrelated numerical experiments or exploratory research records.
 
@@ -103,6 +107,20 @@ The author's broader [xi zero-detection preprint, version 1.0.0](https://doi.org
 
 ## Citation and rights
 
-Use [CITATION.cff](CITATION.cff), which identifies the mathematical preprint as the preferred citation. The version DOI will be recorded after archiving.
+Use [CITATION.cff](CITATION.cff), which identifies the mathematical preprint as the preferred citation, or:
+
+```bibtex
+@misc{vanhemert2026thetacoupling,
+  author    = {van Hemert, Leonard},
+  title     = {Sharp logarithmic coupling estimates for theta equality frames
+               in a signed Weil-form realization},
+  year      = {2026},
+  publisher = {Zenodo},
+  version   = {1.0.0},
+  doi       = {10.5281/zenodo.23298499},
+  url       = {https://doi.org/10.5281/zenodo.23298499},
+  note      = {Mathematical preprint}
+}
+```
 
 Copyright © 2026 Leonard van Hemert. All rights reserved; see [NOTICE](NOTICE). Public access to the paper and source does not grant a new open-content license.

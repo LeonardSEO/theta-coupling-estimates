@@ -31,4 +31,14 @@ Third-party PDFs, general Li-positivity investigations, exploratory computations
 
 ## Archival status
 
-The enabled GitHub–Zenodo integration will archive the version release. The actual version DOI, public record and archive verification will be recorded after successful publication. The tag and release assets will remain frozen; citation updates will be added in a separate documentation commit.
+The public [GitHub release v1.0.0](https://github.com/LeonardSEO/theta-coupling-estimates/releases/tag/v1.0.0) was published on 11 October 2026 from commit `a8cf3560d5fbec587b23a45c93550681eeb27cd7`. The enabled GitHub–Zenodo integration archived that tag as a published mathematical preprint under Leonard van Hemert's name:
+
+- Version DOI: [10.5281/zenodo.23298499](https://doi.org/10.5281/zenodo.23298499).
+- Public record: [Zenodo 23298499](https://zenodo.org/records/23298499).
+- All-versions DOI: [10.5281/zenodo.23298498](https://doi.org/10.5281/zenodo.23298498).
+- Archived ZIP: `LeonardSEO/theta-coupling-estimates-v1.0.0.zip`, 166883 bytes.
+- ZIP SHA-256: `51886fb977d6d38ccfc29df30a6e3135ea4f6f306ff1dfa47dd57239d2626faf`.
+
+The public record's author, title, version, publication date, preprint type, open access and retained rights were checked. The DOI resolved to the public record. The downloaded Zenodo ZIP passed its reported MD5 checksum, matched all 12 tracked files byte for byte against the tagged commit, and passed all 11 entries of the publication SHA-256 manifest. All four uploaded GitHub release assets matched their local sizes and SHA-256 digests.
+
+The tag and release assets remain frozen. Issued-DOI citation metadata and these archive-verification details are added on the default branch in a separate documentation commit; they do not change the archived mathematical manuscript.
