@@ -1,0 +1,40 @@
+{
+  "cff-version": "1.2.0",
+  "message": "Please cite the mathematical preprint using preferred-citation. The release contains its manuscript and reproducibility materials.",
+  "title": "Sharp logarithmic coupling estimates for theta equality frames in a signed Weil-form realization",
+  "authors": [
+    {
+      "family-names": "van Hemert",
+      "given-names": "Leonard"
+    }
+  ],
+  "version": "1.0.0",
+  "date-released": "2026-10-11",
+  "url": "https://github.com/LeonardSEO/theta-coupling-estimates",
+  "repository-code": "https://github.com/LeonardSEO/theta-coupling-estimates",
+  "abstract": "We prove sharp two-sided estimates for the finite-frame Schur correction associated with the first m pole-killing odd theta derivatives in a weighted realization of Weil's quadratic form. For each fixed m, its norm has order beta times log(1/beta) to the power 4m+5/2 as beta tends to zero, with explicit positive constants and a full small-parameter regime. The proof combines separate half-line charge cancellation, a square-root range construction, integrated full theta-tail control and matching odd box tests. We also prove a pointwise upper bound for low-energy gamma spectral mass and an exact change of metric after equality-space elimination. Prime powers and polar terms remain in the signed Weil reduction. No uniform growing-frame estimate, complementary-form positivity or solution of the Riemann Hypothesis is asserted.",
+  "keywords": [
+    "Riemann xi function",
+    "theta kernel",
+    "Weil quadratic form",
+    "Schur complement",
+    "weighted gamma operator",
+    "resolvent estimates",
+    "spectral measure"
+  ],
+  "preferred-citation": {
+    "type": "generic",
+    "title": "Sharp logarithmic coupling estimates for theta equality frames in a signed Weil-form realization",
+    "authors": [
+      {
+        "family-names": "van Hemert",
+        "given-names": "Leonard"
+      }
+    ],
+    "year": 2026,
+    "version": "1.0.0",
+    "date-published": "2026-10-11",
+    "url": "https://github.com/LeonardSEO/theta-coupling-estimates/releases/tag/v1.0.0",
+    "notes": "Mathematical preprint. Fixed-frame theorem; the Riemann Hypothesis remains unresolved."
+  }
+}

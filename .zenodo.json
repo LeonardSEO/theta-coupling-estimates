@@ -1,0 +1,32 @@
+{
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "title": "Sharp logarithmic coupling estimates for theta equality frames in a signed Weil-form realization",
+  "version": "1.0.0",
+  "publication_date": "2026-10-11",
+  "creators": [
+    {
+      "name": "van Hemert, Leonard"
+    }
+  ],
+  "description": "<p>We prove sharp two-sided estimates for the finite-frame Schur correction associated with the first m pole-killing odd theta derivatives in a weighted realization of Weil's quadratic form. For each fixed m, its norm has order beta times log(1/beta) to the power 4m+5/2 as beta tends to zero, with explicit positive constants and a full small-parameter regime. The proof combines separate half-line charge cancellation, a square-root range construction, integrated full theta-tail control and matching odd box tests. We also prove a pointwise upper bound for low-energy gamma spectral mass and an exact change of metric after equality-space elimination. Prime powers and polar terms remain in the signed Weil reduction. No uniform growing-frame estimate, complementary-form positivity or solution of the Riemann Hypothesis is asserted.</p><p>The archive contains the complete standalone manuscript, compiled PDF and reproducible release packaging. The analytic theorems require no numerical certificate. Internal reconstruction, originality and external review are distinguished.</p><p>Copyright &copy; 2026 Leonard van Hemert. All rights reserved. Public access does not imply an open-content license; see NOTICE.</p>",
+  "access_right": "open",
+  "license": "other-closed",
+  "language": "eng",
+  "keywords": [
+    "Riemann xi function",
+    "theta kernel",
+    "Weil quadratic form",
+    "Schur complement",
+    "weighted gamma operator",
+    "resolvent estimates",
+    "spectral measure"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/LeonardSEO/theta-coupling-estimates/releases/tag/v1.0.0",
+      "relation": "isIdenticalTo",
+      "scheme": "url"
+    }
+  ]
+}

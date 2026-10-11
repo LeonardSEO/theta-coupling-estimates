@@ -1,0 +1,8 @@
+dist/
+__pycache__/
+*.pyc
+.DS_Store
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.synctex.gz

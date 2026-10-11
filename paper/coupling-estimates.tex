@@ -1,0 +1,1116 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\dd}{\,d}
+\newcommand{\Ran}{\operatorname{Ran}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\title{Sharp logarithmic coupling estimates for theta equality frames\\
+in a signed Weil-form realization}
+\author{Leonard van Hemert}
+\date{11 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We determine the size of the finite-frame Schur correction associated
+with the odd theta derivatives in a weighted realization of Weil's
+quadratic form. For the first \(m\) pole-killing odd derivatives,
+the exact correction satisfies
+\[
+ \|E_{m,\beta}\|\asymp_m
+       \beta\bigl(\log(1/\beta)\bigr)^{4m+5/2}
+       \qquad(\beta\downarrow0).
+\]
+Both inequalities are unconditional, with explicit constants and
+parameter regimes. The upper bound follows from a constructive
+cancellation of the source charge on each half-line, a square-root
+range argument, and an integrated estimate of the full theta tail.
+Odd box tests give the matching lower bound. We also obtain a
+pointwise upper bound for the low-energy spectral mass of the
+weighted gamma operator. The prime-shift operator and the polar
+terms are retained in the exact Schur reduction. The estimate rules
+out an \(O_m(\beta)\) bound for this correction; it does not determine
+the sign of the remaining complementary form. An exact change of
+metric also identifies how eliminating the equality space before
+gamma normalization cancels the explicit correction and moves
+its logarithmic growth into the metric.
+\end{abstract}
+
+\section{The estimate and its setting}
+
+We use
+\[
+ \xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),\qquad
+ \widehat f(t)=\int_{\R}f(x)e^{itx}\dd x.
+\]
+The Fourier convention has Plancherel factor \(1/(2\pi)\).
+Inner products are linear in the first entry. The actual even
+theta kernel is
+\begin{equation}\label{phi}
+ \Phi(x)=\sum_{n\ge1}
+ (4\pi^2n^4e^{9|x|/2}-6\pi n^2e^{5|x|/2})
+                    e^{-\pi n^2e^{2|x|}},
+ \qquad \widehat\Phi(t)=\xi(1/2+it).
+\end{equation}
+It is smooth and positive. Its smooth even extension and Fourier
+normalization are classical; see Romik
+\cite[(1.8)--(1.11), printed p.~2]{Romik}.
+Put
+\[
+ c(x)=\cosh(x/2),\qquad w(x)^2=\Phi(x)/c(x),\qquad H=L^2(\R,\dd x).
+\]
+Let \(\psi=\Gamma'/\Gamma\), and define the complete gamma symbols
+\begin{align}
+ m_\Gamma(t)&=\Re\psi(1/4+it/2)-\log\pi,\notag\\
+ c_\Gamma&=m_\Gamma(0)
+   =-\gamma_E-\pi/2-3\log2-\log\pi,\notag\\
+ b(t)&=m_\Gamma(t)-c_\Gamma
+ =\sum_{j\ge0}\frac{(t/2)^2}
+ {(j+1/4)\{(j+1/4)^2+(t/2)^2\}}.\label{symbol}
+\end{align}
+Define \(G\) through its maximal closed nonnegative form
+\begin{equation}\label{g}
+ g(u)=\frac1{2\pi}\int_\R b(t)|\widehat{wu}(t)|^2\dd t,\qquad
+ \mathcal V=\{u\in H:g(u)<\infty\}.
+\end{equation}
+The form domain, injectivity and relevant operator domains are proved
+below. No critical-line location of a zero is assumed.
+
+For \(r\ge1\) set
+\begin{equation}\label{jets}
+ d_r=2r+1,\qquad \kappa_r=4r+5/2,\qquad
+ h_r=\partial_x(\partial_x^2-1/4)^r\Phi,\qquad
+ \widetilde u_r=h_r/w.
+\end{equation}
+These are linearly independent odd vectors in \(D(G)\).
+Fix \(m\ge1\), and choose any base-\(L^2\) orthonormal basis
+\(u_1,\ldots,u_m\) of their first-\(m\) span. Write
+\(U:\C^m\to H_{\rm odd}\) for the associated isometry, and put
+\begin{align}
+ F_\beta&=(G+\beta)^{-1/2},&
+ B_\beta&=(G+\beta)^{1/2}U,\notag\\
+ H_0&=U^*GU,& H_\beta&=H_0+\beta I,\notag\\
+ W_\beta&=B_\beta H_\beta^{-1/2},&
+ N_\beta&=I-W_\beta W_\beta^*.\label{frame}
+\end{align}
+The finite matrix \(H_0\) is positive definite. Thus \(W_\beta\)
+is an isometry, and \(N_\beta\) is an orthogonal projection.
+The finite-rank correction of interest is
+\begin{equation}\label{E}
+ E_{m,\beta}=\beta N_\beta F_\beta UU^*F_\beta N_\beta
+                 \quad\text{on }H_{\rm odd}.
+\end{equation}
+
+\begin{theorem}[Sharp fixed-frame coupling]\label{main}
+For every fixed \(m\ge1\) there are explicitly defined positive
+constants \(a_m,A_m,\ell_m\) such that
+\begin{equation}\label{mainbound}
+ a_m\beta\bigl(\log(1/\beta)\bigr)^{\kappa_m}
+ \le \|E_{m,\beta}\|
+ \le A_m\beta\bigl(\log(1/\beta)\bigr)^{\kappa_m}
+       \quad(0<\beta\le e^{-\ell_m}).
+\end{equation}
+One may take the constants in \eqref{frameconstants}--\eqref{regime}.
+In the same regime,
+\begin{equation}\label{mass}
+ \|U^*\mathbf1_{(0,t]}(G)U\|
+      \le 2A_m t\bigl(\log(1/t)\bigr)^{\kappa_m}
+           \quad(0<t\le e^{-\ell_m}).
+\end{equation}
+The exact norm identity is
+\begin{equation}\label{Enorm}
+ \|E_{m,\beta}\|
+   =\beta\|U^*(G+\beta)^{-1}U-H_\beta^{-1}\|.
+\end{equation}
+\end{theorem}
+
+In particular, the first vector gives the exponent \(13/2\).
+The constants and the small-parameter regime depend on \(m\).
+Equation \eqref{mass} is an upper bound for a discontinuous spectral
+projection; a matching pointwise lower bound is not asserted.
+
+The estimate concerns a specific full-symbol resolvent and its exact
+finite-dimensional correction. The Weil and Li frameworks themselves
+have substantial antecedents. Bombieri--Lagarias
+\cite[Theorem~1 and (2.4); Section~4]{BL} give the explicit-formula
+relation underlying Li's criterion. Suzuki's norm formula
+\cite[Theorem~1.1, (1.8)]{SuzukiLi} is equivalent to RH, and its
+orthonormal-basis argument
+\cite[Proposition~3.2]{SuzukiLi} assumes RH. Suzuki's localized
+Weil operators \cite[Theorem~1.1; Sections~2.4--2.5]{SuzukiWeil}
+provide the local gamma and prime formulas used here. Our weighted
+whole-line \(G\) is instead defined directly by the closed form
+\eqref{g}. The proof below quantifies its actual theta-jet resolvent,
+then identifies the correction in the full signed Weil form.
+No inner-function or conditional model-space property is imported.
+Invertible-block Schur elimination is standard; compare
+Dusson--Sigal--Stamm \cite[Theorem~1.2, (1.10)--(1.11)]{Feshbach}.
+The quantitative step here is the actual theta-weighted resolvent
+estimate. The zero-charge primitive is a Fourier antiderivative
+construction, used with separate half-line compensation to obtain
+the stated rate.
+
+\section{The complete weighted gamma form}
+
+\begin{lemma}[Theta bounds]\label{weights}
+With \(C_-=4\pi^2-6\pi>0\) and \(C_\Phi=8\pi^2\), for every real \(x\),
+\begin{align}
+ C_-e^{9|x|/2-\pi e^{2|x|}}
+ &\le \Phi(x)\le C_\Phi e^{9|x|/2-\pi e^{2|x|}},\label{phibound}\\
+ C_-e^{4|x|-\pi e^{2|x|}}
+ &\le w(x)^2\le2C_\Phi e^{4|x|-\pi e^{2|x|}}.\label{wbound}
+\end{align}
+For every fixed \(j\ge0\), a finite constant \(C_j\) gives
+\[
+ |\Phi^{(j)}(x)|\le C_j e^{(9/2+2j)|x|-\pi e^{2|x|}}.
+\]
+\end{lemma}
+\begin{proof}
+For \(x\ge0\), every theta summand is positive. Its \(n=1\) term
+gives the lower bound. For the upper bound discard the negative
+terms and factor out \(e^{9x/2-\pi e^{2x}}\).
+The remaining sum is
+\(4\pi^2\sum n^4e^{-\pi(n^2-1)e^{2x}}\).
+For \(n\ge2\), \(n^4\le16\,6^{n-2}\) and \(n^2-1\ge n+1\).
+Since \(q=e^{-\pi}<1/20\), this tail is at most
+\(16q^3/(1-6q)<1\). The total sum is less than two.
+Divide by \(c(x)\), using \(e^{x/2}/2\le c(x)\le e^{x/2}\).
+Evenness supplies the other half-line.
+
+Each fixed derivative of a summand is a polynomial of degree at most
+\(j\) in \(\pi n^2e^{2x}\), times the original exponential.
+Factoring the first exponential leaves a summable Gaussian
+\(n\)-polynomial majorant. This proves the derivative bound and
+justifies termwise differentiation locally. In particular every
+fixed derivative is Schwartz.
+\end{proof}
+
+\begin{lemma}[Closed form, jump formula and domains]\label{closed}
+The form \eqref{g} is densely defined and closed, and its associated
+self-adjoint operator \(G\) is nonnegative and injective.
+For \(f=wu\),
+\begin{equation}\label{jump}
+ g(u)=\frac12\int_\R
+       \frac{e^{-|a|/2}}{1-e^{-2|a|}}
+          \int_\R |f(x+a)-f(x)|^2\dd x\,\dd a.
+\end{equation}
+Compact smooth functions are a form core.
+If \(u\in\mathcal V\) and the physical Fourier multiplier
+\(b(D_x)(wu)\) belongs to \(L^2\), then
+\[
+ u\in D(G),\qquad Gu=w\,b(D_x)(wu).
+ \tag{\(\ast\)}
+\]
+Moreover, at every \(t\ne0\),
+\begin{equation}\label{inverse}
+ b(t)\ge\frac{16t^2}{1+4t^2},\qquad
+ b(t)^{-1}\le\frac14+\frac1{16t^2}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The digamma series gives \eqref{symbol}; its first nonnegative
+summand gives \eqref{inverse}. Also
+\[
+ b(t)=\int_\R \mathfrak h(a)(1-\cos ta)\dd a,\qquad
+ \mathfrak h(a)=\frac{e^{-|a|/2}}{1-e^{-2|a|}}.
+\]
+Indeed expand \(\mathfrak h=\sum_{j\ge0}e^{-(2j+1/2)|a|}\),
+integrate each nonnegative term, and obtain \eqref{symbol}.
+Tonelli and Plancherel prove \eqref{jump}.
+The series also shows \(b(t)=O(\log(2+|t|))\):
+split it at \(j+1/4=|t|/2\), bounding the first part by a
+harmonic sum and the second by a cubic tail.
+
+Multiplication by the bounded \(w\) maps \(H\) continuously into
+\(L^2\). The map \(u\mapsto b(D_x)^{1/2}(wu)\) is closed:
+convergence of \(u\) in \(H\) implies convergence of \(wu\), and
+the physical multiplier is closed. This proves closedness of
+\eqref{g}. Compact smooth functions give density.
+If \(g(u)=0\), then \(\widehat{wu}\) is supported on \(\{0\}\),
+because \(b(t)>0\) off zero. An \(L^2\) function with that support
+vanishes. Since \(w>0\), \(u=0\).
+
+Here are details of the core assertion. Let \(\chi_R\) be smooth,
+equal to one on \([-R,R]\), supported on \([-2R,2R]\), and with
+\(|\chi_R'|\le C/R\), for \(R\ge1\).
+In the jump formula for \((1-\chi_R)f\), split its difference into
+a cutoff times the difference of \(f\), and \(f\) times a cutoff
+difference. Dominated convergence handles the first term.
+The second tends to zero and is dominated by
+\(C'\|f\|_2^2\mathfrak h(a)\min(a^2,1)\), an integrable function.
+Thus \(\chi_Ru\to u\) in the form norm.
+For a fixed \(R\), mollify the compact physical function
+\(f_R=w\chi_Ru\). Fourier dominated convergence gives convergence
+of the mollification in the \(b\)-form norm as well as in \(L^2\).
+Divide the mollified functions by \(w\); on the fixed enlarged
+compact support, \(1/w\) is smooth and bounded. This gives compact
+smooth approximants to \(\chi_Ru\) in the required form norm.
+Finally, if \(b(D_x)(wu)\in L^2\), Plancherel gives the polarized
+form as \(\langle w b(D_x)(wu),v\rangle\) for every
+\(v\in\mathcal V\). The form representation theorem proves
+\((\ast)\).
+\end{proof}
+
+\section{Charge cancellation and the resolvent upper bound}
+
+\begin{lemma}[Constructive square-root range approximation]\label{charge}
+Suppose \(u\in H\), \(a=u/w\) is odd, and
+\(|a(x)|\le Ce^{\kappa|x|}\), where \(C,\kappa>0\).
+Complex-valued odd sources are allowed.
+Put
+\[
+ R_\kappa=\max\left(1,\frac12\log\frac{2(\kappa+1)}{\pi}\right).
+\]
+For \(R\ge R_\kappa\), define
+\begin{align}
+ \alpha_R&=\int_0^R a(x)\dd x,&
+ b_R&=\mathbf1_{[R+1,R+2]}-\mathbf1_{[-R-2,-R-1]},\notag\\
+ a_R&=a\mathbf1_{[-R,R]}-\alpha_R b_R,&
+ u_R&=wa_R,\qquad P_R(x)=\int_0^x a_R(t)\dd t.\label{charges}
+\end{align}
+Both half-line integrals of \(a_R\) vanish. The vector \(u_R\)
+belongs to \(\Ran G^{1/2}\), and
+\begin{align}
+ \|G^{-1/2}u_R\|^2&\le K_Ae^{2\kappa R},\label{rangebound}\\
+ \|u-u_R\|^2&\le K_Te^{(2\kappa+2)R-\pi e^{2R}},\label{tailbound}\\
+ K_A&=C^2\left(\frac1{4\kappa}+\frac3{4\kappa^2}
+                                +\frac1{16\kappa^3}\right),\notag\\
+ K_T&=8C_\Phi C^2\left(\frac1\pi+\frac1{\kappa^2}\right).\notag
+\end{align}
+\end{lemma}
+\begin{proof}
+Oddness cancels the negative half-line charge once the positive one
+is canceled. The primitive \(P_R\) is even and supported in
+\([-R-2,R+2]\). On \([0,R]\),
+\(|P_R(x)|\le Ce^{\kappa x}/\kappa\); on \([R,R+1]\) it is
+\(\alpha_R\); on \([R+1,R+2]\) it decreases linearly to zero.
+The supports of the two pieces of \(a_R\) are disjoint. Therefore
+\begin{align*}
+ \|a_R\|^2&\le C^2(\kappa^{-1}+2\kappa^{-2})e^{2\kappa R},\\
+ \|P_R\|^2&\le C^2(\kappa^{-3}+4\kappa^{-2})e^{2\kappa R}.
+\end{align*}
+The derivative \(P_R'=a_R\) holds in distributions and almost
+everywhere. Hence \(\widehat a_R=-it\widehat P_R\), and
+\eqref{inverse} gives
+\[
+ \|b(D_x)^{-1/2}a_R\|^2
+ \le\tfrac14\|a_R\|^2+\tfrac1{16}\|P_R\|^2
+ \le K_Ae^{2\kappa R}.
+\]
+For every \(v\in\mathcal V\), Fourier Cauchy--Schwarz yields
+\[
+ |\langle u_R,v\rangle|
+ =|\langle a_R,wv\rangle|
+ \le\|b(D_x)^{-1/2}a_R\|\,\|G^{1/2}v\|.
+\]
+Injectivity makes \(\Ran G^{1/2}\) dense. The bounded functional
+on this range has a Riesz representative \(q_R\) of norm at most
+\(\|b(D_x)^{-1/2}a_R\|\). Thus
+\(\langle u_R,v\rangle=\langle q_R,G^{1/2}v\rangle\)
+on the entire form domain. The adjoint-domain characterization of
+the self-adjoint \(G^{1/2}\) gives
+\(q_R\in D(G^{1/2})\) and \(G^{1/2}q_R=u_R\).
+This proves \eqref{rangebound} without taking the formal inverse
+of a product of unbounded operators.
+
+Write \(Y=e^{2R}\). By \eqref{wbound}, the omitted source tail has
+weighted square norm at most
+\[
+ 4C_\Phi C^2\int_R^\infty
+ e^{(2\kappa+4)x-\pi e^{2x}}\dd x
+ =2C_\Phi C^2\int_Y^\infty y^{\kappa+1}e^{-\pi y}\dd y
+ \le\frac{4C_\Phi C^2}{\pi}Y^{\kappa+1}e^{-\pi Y}.
+\]
+Here \(\pi Y\ge2(\kappa+1)\), so the logarithmic derivative of
+the last integrand is at most \(-\pi/2\).
+The weighted square norm of the outer charge rectangles is at most
+\[
+ \frac{4C_\Phi C^2}{\kappa^2}
+       e^{(2\kappa+4)R+4-\pi e^2Y}
+ \le\frac{4C_\Phi C^2}{\kappa^2}Y^{\kappa+1}e^{-\pi Y}.
+\]
+For the final inequality use
+\(Ye^4e^{-\pi(e^2-1)Y}\le1\) for \(Y\ge1\);
+\(\log Y\le Y\), \(e^2>7\), and \(\pi>3\) suffice.
+The square triangle inequality proves \eqref{tailbound}.
+The half-line cancellation keeps the primitive's large plateau in
+two outer strips of bounded length, instead of across the central
+interval. This is why its norm has no additional factor \(R\).
+\end{proof}
+
+\begin{proposition}[Explicit upper rate]\label{upper}
+Under the hypotheses of Lemma~\ref{charge}, define
+\begin{equation}\label{KU}
+ \ell_\kappa=\max(\pi e^2/2,\kappa+1),\qquad
+ K_U(C,\kappa)=2(K_A+K_T)(2/\pi)^\kappa.
+\end{equation}
+For \(0<\beta\le e^{-\ell_\kappa}\),
+\[
+ \mathcal R_u(\beta):=\langle u,(G+\beta)^{-1}u\rangle
+       \le K_U(C,\kappa)\bigl(\log(1/\beta)\bigr)^\kappa.
+\]
+Also, for \(0<t\le e^{-\ell_\kappa}\),
+\[
+ \langle\mathbf1_{(0,t]}(G)u,u\rangle
+       \le2K_U(C,\kappa)t\bigl(\log(1/t)\bigr)^\kappa.
+\]
+\end{proposition}
+\begin{proof}
+The resolvent square-root triangle inequality gives
+\[
+ \mathcal R_u(\beta)\le
+ 2K_Ae^{2\kappa R}
+       +2\beta^{-1}K_Te^{(2\kappa+2)R-\pi e^{2R}}.
+\]
+Set \(L=\log(1/\beta)\) and \(e^{2R}=2L/\pi\).
+The stated regime is exactly \(R\ge R_\kappa\).
+The error term is \(2K_T\beta(2L/\pi)^{\kappa+1}\).
+Since \(\beta(2L/\pi)<1\), \eqref{KU} gives the first bound.
+For the second apply
+\(\mathbf1_{(0,t]}(s)\le2t/(s+t)\) in the spectral theorem.
+No assumption on the type of the spectral measure is used.
+\end{proof}
+
+\section{Actual theta jets and matching lower bounds}
+
+The following finite definitions supply constants for every jet.
+For \(\alpha=9/2,5/2\), let
+\begin{align}
+ P_{\alpha,0}(q)&=1,&
+ P_{\alpha,k+1}(q)&=(\alpha-2q)P_{\alpha,k}(q)
+                                      +2qP'_{\alpha,k}(q),\notag\\
+ R_{\alpha,r}(q)&=\sum_{k=0}^r\binom rk(-1/4)^{r-k}
+                                  P_{\alpha,2k+1}(q),&
+ B_{\alpha,r}&=\sum_{j=0}^{d_r}
+          |[q^j]R_{\alpha,r}(q)|\,\pi^{j-d_r}.\label{polynomials}
+\end{align}
+For a positive integer \(p\), set
+\begin{equation}\label{Sp}
+ M=p+1,\qquad \rho_p=e^{1-\pi(2M+1)},\qquad
+ \mathcal S_p=\sum_{n=1}^{M-1}n^pe^{-\pi(n^2-1)}
+      +\frac{M^pe^{-\pi(M^2-1)}}{1-\rho_p}.
+\end{equation}
+Finally put
+\begin{equation}\label{Ca}
+ C_{a,r}=\frac{\pi^{d_r}}{C_-}
+ \left(4\pi^2B_{9/2,r}\mathcal S_{4+2d_r}
+              +6\pi B_{5/2,r}\mathcal S_{2+2d_r}\right).
+\end{equation}
+
+\begin{lemma}[Whole-lattice jet bounds]\label{jetbounds}
+The constants \eqref{polynomials}--\eqref{Ca} give
+\begin{equation}\label{sourceupper}
+ \left|\frac{h_r(x)}{\Phi(x)}\right|
+        \le C_{a,r}e^{2d_r|x|},\qquad
+ \left|\frac{\widetilde u_r(x)}{w(x)}\right|
+        \le C_{a,r}e^{\kappa_r|x|}.
+\end{equation}
+Every \(\widetilde u_r\) belongs to \(D(G)\).
+Moreover, as \(x\to+\infty\),
+\begin{equation}\label{jetleading}
+ \frac{c(x)h_r(x)}{\Phi(x)}
+ =-\frac{(2\pi)^{d_r}}2 e^{\kappa_rx}
+                  (1+e^{-x})(1+O_r(e^{-2x})).
+\end{equation}
+Consequently the vectors \(\widetilde u_1,\ldots,\widetilde u_m\)
+are independent for every \(m\).
+\end{lemma}
+\begin{proof}
+The recurrence in \eqref{polynomials} is differentiation of
+\(e^{\alpha x-\pi n^2e^{2x}}\).
+The polynomial \(R_{\alpha,r}\) has degree \(d_r\) and leading
+coefficient \(-2^{d_r}\). For \(q\ge\pi\),
+\(|R_{\alpha,r}(q)|\le B_{\alpha,r}q^{d_r}\).
+The \(n\)th differentiated theta term is
+\[
+ 4\pi^2n^4e^{9x/2-q_n}R_{9/2,r}(q_n)
+       -6\pi n^2e^{5x/2-q_n}R_{5/2,r}(q_n),
+       \qquad q_n=\pi n^2e^{2x}.
+\]
+For \(n\ge M=p+1\), the ratio of successive terms of
+\(n^pe^{-\pi(n^2-1)}\) is at most
+\(e^{p/n-\pi(2n+1)}\le\rho_p<1\).
+Thus \(\mathcal S_p\) bounds the complete Gaussian sum.
+Divide the derivative series by the positive lower bound
+\eqref{phibound}, and use
+\(e^{-\pi(n^2-1)e^{2x}}\le e^{-\pi(n^2-1)}\) for \(x\ge0\).
+This proves the first inequality in \eqref{sourceupper}.
+Multiplication by \(c(x)\le e^{|x|/2}\) proves the second.
+Parity supplies \(x<0\).
+
+The lower weight bound and the derivative bounds show
+\(\widetilde u_r=h_r/w\in L^2\).
+The physical function \(h_r\) is Schwartz, and
+\(b(t)=O(\log(2+|t|))\), so \(b(D_x)h_r\in L^2\).
+Lemma~\ref{closed} puts \(\widetilde u_r\) in \(D(G)\).
+
+In the \(n=1\) term, take the leading coefficients of the finite
+polynomials and divide by the leading term of \(\Phi\).
+The relative polynomial error is \(O_r(e^{-2x})\).
+For \(n\ge2\), the complete relative remainder is bounded by a
+constant times
+\[
+ \sum_{n\ge2}n^{4+2d_r}e^{-\pi(n^2-1)e^{2x}}
+ \le \mathcal S_{4+2d_r}
+                e^{-3\pi(e^{2x}-1)}.
+\]
+It is smaller than the stated polynomial error. Multiplication by
+\(c(x)=e^{x/2}(1+e^{-x})/2\) proves \eqref{jetleading}
+with the full lattice retained.
+A nontrivial finite linear combination has a unique largest
+\(\kappa_r\); its leading tail cannot vanish. This proves independence.
+\end{proof}
+
+To specify the lower regime, define
+\begin{align}
+ S_{\alpha,r}&=\sum_{j<d_r}|[q^j]R_{\alpha,r}(q)|,\notag\\
+ Q_r&=\max(1,2^{1-d_r}S_{9/2,r},2^{1-d_r}S_{5/2,r}),\notag\\
+ R_{0,r}&=\max(1,\tfrac12\log(Q_r/\pi)),&
+ c_{a,r}&=2^{d_r-4}\pi^{d_r},\notag\\
+ R_{*,r}&=R_{0,r}+\kappa_r^{-1}
+                    \log\frac{2(C_{a,r}+c_{a,r})}{c_{a,r}},\notag\\
+ \overline C_g&=218/25,&
+ \ell_{L,r}&=2\pi e^{2R_{*,r}},\notag\\
+ K_{L,r}&=\frac{c_{a,r}^2}
+ {\kappa_r^2(4\overline C_g+1)(2\pi)^{\kappa_r}}.\label{lowerconstants}
+\end{align}
+
+\begin{proposition}[Explicit matching lower rate]\label{lower}
+For every \(r\ge1\) and \(0<\beta\le e^{-\ell_{L,r}}\),
+\[
+ \mathcal R_{\widetilde u_r}(\beta)
+       \ge K_{L,r}\bigl(\log(1/\beta)\bigr)^{\kappa_r}.
+\]
+\end{proposition}
+\begin{proof}
+For \(q\ge Q_r\), \(q\ge1\) and the sum of all lower-degree
+terms is at most \(S_{\alpha,r}q^{d_r-1}\).
+Therefore
+\[
+ -3\cdot2^{d_r-1}q^{d_r}
+       \le R_{\alpha,r}(q)\le-2^{d_r-1}q^{d_r}.
+\]
+For \(x\ge R_{0,r}\), this holds for every \(q_n\).
+In each differentiated theta summand, the ratio of the possible
+positive contribution from the second term to the negative
+leading bound from the first is at most
+\[
+ \frac{9}{2\pi n^2}e^{-2x}<\tfrac12.
+\]
+Thus all derivative summands are negative. Retaining half of the
+first negative bound and then the \(n=1\) term yields
+\[
+ h_r(x)\le-2^{d_r}\pi^{d_r+2}
+                  e^{(9/2+2d_r)x-\pi e^{2x}}.
+\]
+Divide this negative numerator by the \emph{upper} bound on
+\(\Phi\), and use \(c(x)\ge e^{x/2}/2\). With
+\(a_r=c h_r/\Phi=\widetilde u_r/w\), we obtain
+\begin{equation}\label{negative}
+                 a_r(x)\le-c_{a,r}e^{\kappa_rx}
+                             \quad(x\ge R_{0,r}).
+\end{equation}
+
+Let \(H_R(x)=\sgn(x)\mathbf1_{[-R,R]}(x)\) and \(v_R=H_R/w\).
+For finite \(R\), \(v_R\in L^2\).
+The physical box \(H_R\) has supremum one and total variation four.
+Hence
+\[
+ \int|H_R(x+a)-H_R(x)|^2\dd x\le8|a|.
+\]
+The full jump formula gives
+\[
+ g(v_R)\le4 C_g,\qquad
+ C_g=\int_\R\mathfrak h(a)|a|\dd a
+     =2\sum_{j\ge0}(2j+1/2)^{-2}
+     \le8+2(4/25+1/5)=\overline C_g.
+\]
+This also proves \(v_R\in\mathcal V\), including its jumps.
+The upper central bound \eqref{sourceupper} and the negative tail
+\eqref{negative} imply
+\[
+ \langle\widetilde u_r,v_R\rangle
+ =2\int_0^R a_r(x)\dd x
+ \le-\frac{c_{a,r}}{\kappa_r}e^{\kappa_rR}
+                        \quad(R\ge R_{*,r}).
+\]
+Indeed the central integral contributes at most
+\[
+ \frac{2C_{a,r}}{\kappa_r}e^{\kappa_rR_{0,r}},
+\]
+while the tail contributes at most
+\[
+ -\frac{2c_{a,r}}{\kappa_r}
+       \bigl(e^{\kappa_rR}-e^{\kappa_rR_{0,r}}\bigr).
+\]
+The definition of \(R_{*,r}\) gives the displayed inequality.
+
+The lower weight bound, and monotonicity of
+\(e^{-4x+\pi e^{2x}}\) on \(x\ge0\), give
+\[
+ \|v_R\|^2\le\frac{2R}{C_-}e^{-4R+\pi e^{2R}}.
+\]
+Set \(L=\log(1/\beta)\) and \(e^{2R}=L/(2\pi)\).
+Then \(R\ge R_{*,r}\ge1\) in the stated regime, and
+\[
+ \beta\|v_R\|^2
+ \le\frac{2R}{C_-}e^{-4R-L/2}
+ \le\frac{2e^{-4}}{C_-}<1.
+\]
+The resolvent variational inequality on the form domain now gives
+\[
+ \mathcal R_{\widetilde u_r}(\beta)
+ \ge
+ \frac{|\langle\widetilde u_r,v_R\rangle|^2}
+ {g(v_R)+\beta\|v_R\|^2}
+ \ge
+ \frac{c_{a,r}^2}{\kappa_r^2(4\overline C_g+1)}
+                     \left(\frac{L}{2\pi}\right)^{\kappa_r}.
+\]
+It follows directly by Cauchy--Schwarz applied to
+\((G+\beta)^{-1/2}\widetilde u_r\) and
+\((G+\beta)^{1/2}v_R\).
+This proves the proposition with no truncation of the gamma kernel.
+\end{proof}
+
+\section{The exact signed Weil coupling}
+
+This section identifies the correction \eqref{E} in the complete
+Weil form, including the two polar moments. It is not needed for
+the scalar resolvent estimates.
+
+Define the bounded self-adjoint full prime-shift operator by
+\begin{equation}\label{prime}
+ (Ju)(x)=\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}w(x)
+   \{w(x-\log n)u(x-\log n)+w(x+\log n)u(x+\log n)\}.
+\end{equation}
+For \(q\in H\), let \((q\otimes q)u=\langle u,q\rangle q\).
+Put
+\begin{align}
+ p_c&=w\cosh(x/2),&p_s&=w\sinh(x/2),\notag\\
+ \mathcal P&=2(p_c\otimes p_c-p_s\otimes p_s),&
+ D&=J-c_\Gamma M_w^2,\qquad D_W=D-\mathcal P.\label{DW}
+\end{align}
+Both pole vectors belong to \(H\).
+
+\begin{lemma}[Full operator and unconditional equality]\label{equality}
+The series \eqref{prime} converges in operator norm, and \(D_W\)
+is bounded and self-adjoint. On compact smooth physical tests \(f=wu\),
+the Weil form is exactly
+\begin{equation}\label{weil}
+ Q_W(f)=g(u)-\langle D_Wu,u\rangle.
+\end{equation}
+This formula supplies a closed lower-bounded weighted extension.
+Every vector in \eqref{jets} satisfies, unconditionally,
+\begin{equation}\label{annihilate}
+ \mathcal P\widetilde u_r=0,\qquad
+ (G-D)\widetilde u_r=(G-D_W)\widetilde u_r=0.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For \(a=\log n\), set \(A=e^{2|x|}\), \(B=e^{2|x-a|}\).
+By \eqref{wbound},
+\[
+ w(x)w(x-a)\le2C_\Phi AB e^{-\pi(A+B)/2}
+                   \le C_\Phi e^{-\pi(A+B)/8}
+                   \le C_\Phi e^{-\pi n/4}.
+\]
+Here \(A,B\ge1\), \(\log(2AB)\le A+B<3\pi(A+B)/8\),
+and \(AB\ge n^2\), so \(A+B\ge2n\).
+The paired shift has operator norm at most
+\(2C_\Phi e^{-\pi n/4}\).
+Since \(\Lambda(n)\le\log n\),
+\(\sum_{n\ge2}2C_\Phi(\log n)n^{-1/2}e^{-\pi n/4}<\infty\).
+The two shifts are adjoints of one another, proving the assertion.
+The remaining terms in \eqref{DW} are bounded self-adjoint operators.
+
+For completeness, specify the local explicit formula used here.
+Let \(\mathcal Z\) be the distinct zeros, with multiplicities
+\(m_\gamma\), of \(X(z)=\xi(1/2+iz)\).
+They satisfy \(|\Im\gamma|<1/2\) without RH.
+For \(b_0\in C_c^\infty(\R)\), Weil's explicit formula gives the
+local distribution
+\begin{equation}\label{distribution}
+ \langle k,b_0\rangle
+     =\sum_{\gamma\in\mathcal Z}m_\gamma\widehat b_0(\gamma),
+ \qquad
+ k=2\cosh(\,\cdot\,/2)+K_\Gamma
+       -\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}
+                (\delta_{\log n}+\delta_{-\log n}),
+\end{equation}
+where \(K_\Gamma\) is the tempered Fourier multiplier
+\(m_\Gamma(D_x)\), with its finite-part kernel at zero.
+The zero sum is absolutely convergent for these tests.
+This is the unconditional compact-test formula; see
+Suzuki \cite[Theorem~1.1(2), (1.3)]{SuzukiScrew} and
+\cite[Sections~2.4--2.5; (3.1), printed p.~13]{SuzukiWeil}.
+Only \(K_\Gamma\), not the whole \(k\), is assigned a global
+tempered Fourier multiplier.
+One can obtain its linear zero formula directly from the cited
+unconditional expansion
+\[
+ \Psi(t)=\sum_{\gamma\in\mathcal Z}m_\gamma
+                   \frac{1-\cos(\gamma t)}{\gamma^2},
+                       \qquad k=\Psi''.
+\]
+The series converges absolutely and uniformly on compact real
+intervals, by the strip bound and
+\(\sum m_\gamma(1+|\gamma|)^{-2}<\infty\).
+There is no zero at \(0\), since \(X(0)=\int\Phi>0\).
+Pair it with \(b_0''\), integrate twice by parts, and use the
+symmetry of the full zero multiset under \(\gamma\mapsto-\gamma\).
+This gives exactly \eqref{distribution}, without a half-set factor.
+The contact normalization can also be specified directly:
+\begin{align*}
+ \langle K_\Gamma,b_0\rangle
+ ={}&-(\log(4\pi)+\gamma_E)b_0(0)\\
+ &-\int_0^\infty
+   \{b_0(x)+b_0(-x)-2e^{-x/2}b_0(0)\}
+               \frac{e^{-x/2}}{1-e^{-2x}}\dd x .
+\end{align*}
+The subtraction makes the integral convergent at zero.
+The digamma integral confirms its Fourier symbol \(m_\Gamma\);
+the constants agree because
+\[
+ 2\int_0^\infty\frac{e^{-x}-e^{-2x}}{1-e^{-2x}}\dd x
+       =2\log2=\log4.
+\]
+Suzuki's 2026 xi normalization omits the factor \(1/2\).
+That changes neither the zeros, their multiplicities nor this
+explicit formula; \eqref{phi} retains the normalization used here.
+
+Apply \eqref{distribution} to the correlation
+\(b_0(t)=\int f(x)\overline{f(x-t)}\dd x\).
+Equivalently, for a compact smooth \(f\),
+\[
+ Q_W(f)=\sum_{\gamma\in\mathcal Z}m_\gamma
+              \widehat f(\gamma)\overline{\widehat f(\bar\gamma)}.
+\]
+This sum is absolutely convergent by compact-test Fourier decay,
+the strip bound and zero counting. Multiplicities are retained.
+The polar contribution is
+\[
+ 2\left|\int f(x)\cosh(x/2)\dd x\right|^2
+       -2\left|\int f(x)\sinh(x/2)\dd x\right|^2.
+\]
+The gamma contribution is
+\((2\pi)^{-1}\int m_\Gamma(t)|\widehat f(t)|^2\dd t\);
+the prime contribution is \(-\langle Ju,u\rangle\).
+Splitting \(m_\Gamma=b+c_\Gamma\) proves \eqref{weil}.
+Bounded perturbation of the closed form \(g\) gives its stated
+weighted extension. The zero formula itself is only being invoked
+on the compact tests.
+
+Here is an extension of the local formula sufficient for equality.
+For a fixed real \(x\), test with a compact smooth cutoff of
+\(t\mapsto h_r(x-t)\).
+For each derivative of order at most two, the cutoff remainder
+tends to zero in \(L^1(e^{|t|/2}\dd t)\), by Lemma~\ref{weights}.
+Two integrations by parts and the bound on \(|\Im\gamma|\) give
+\[
+ |\widehat{b_{x,R}}(\gamma)-\widehat{h_r(x-\cdot)}(\gamma)|
+       \le \epsilon_{x,R}(1+|\gamma|)^{-2},\qquad
+                                      \epsilon_{x,R}\to0.
+\]
+Zero counting gives
+\(\sum m_\gamma(1+|\gamma|)^{-2}<\infty\).
+The limiting transform is zero at every \(\gamma\), since
+\[
+ \widehat h_r(z)=(-iz)(-z^2-1/4)^rX(z).
+\]
+Evenness of \(X\) also makes it zero at \(-\gamma\).
+Thus the zero side tends absolutely to zero.
+On the physical side the polar term is integrable against \(h_r\);
+the gamma cutoff converges in Schwartz seminorms; and the entire
+prime series converges locally absolutely, with all fixed derivatives,
+by its theta decay and \(\Lambda(n)\le\log n\).
+Hence \(k*h_r=0\) locally on the whole real line.
+No rearrangement into an unproved global Fourier transform of \(k\)
+has been made.
+
+Integration by parts gives
+\[
+ \int h_r(x)e^{\pm x/2}\dd x=0:
+ \quad(\partial_x^2-1/4)^r e^{\pm x/2}=0
+                      \quad(r\ge1).
+\]
+There are no boundary terms, by the full theta decay.
+Both pole moments therefore vanish, and \eqref{distribution} gives
+\[
+ K_\Gamma h_r
+   =\sum_{n\ge2}\frac{\Lambda(n)}{\sqrt n}
+                \{h_r(\,\cdot-\log n)+h_r(\,\cdot+\log n)\}.
+\]
+Multiply by \(w\). Lemma~\ref{jetbounds} already puts
+\(\widetilde u_r\) in \(D(G)\); the right side is the norm-convergent
+operator \(J\widetilde u_r\).
+Using \(K_\Gamma=b(D_x)+c_\Gamma\) proves \eqref{annihilate}.
+\end{proof}
+
+For this full signed operator, let
+\begin{equation}\label{T}
+ T_\beta=I-F_\beta D_WF_\beta\quad\text{on }H_{\rm odd}.
+\end{equation}
+All its factors are bounded for each fixed \(\beta>0\).
+Reflection preserves the gamma form, the prime operator and the
+pole operator, so the odd restriction is valid.
+
+\begin{proposition}[Exact finite elimination]\label{schur}
+The positive finite equality block is
+\[
+ W_\beta^*T_\beta W_\beta=\beta H_\beta^{-1}.
+\]
+Its Schur complement on \(N_\beta H_{\rm odd}\) is exactly
+\begin{equation}\label{complement}
+ \mathcal C_{m,\beta}
+        =N_\beta T_\beta N_\beta-E_{m,\beta}.
+\end{equation}
+In particular their negative indices agree:
+\(n_-(T_\beta)=n_-(\mathcal C_{m,\beta})\).
+Identity \eqref{Enorm} holds, and its matrix difference is
+nonnegative. The same correction results if \(D_W\) is replaced
+by the gamma-prime operator \(D\).
+\end{proposition}
+\begin{proof}
+Equality \eqref{annihilate} gives
+\[
+ T_\beta B_\beta=\beta F_\beta U,\qquad
+ B_\beta^*F_\beta U=I.
+\]
+Thus \(W_\beta^*T_\beta W_\beta=\beta H_\beta^{-1}>0\).
+In the orthogonal decomposition
+\(H_{\rm odd}=\Ran W_\beta\oplus N_\beta H_{\rm odd}\),
+complete the square with the inverse
+\(\beta^{-1}H_\beta\) of this finite block.
+The off-diagonal block is
+\(\beta N_\beta F_\beta UH_\beta^{-1/2}\).
+Its product with the inverse pivot is exactly \eqref{E};
+the two factors \(H_\beta^{\pm1/2}\) cancel.
+The completion is a bounded invertible triangular congruence
+for each fixed \(\beta\), proving the negative-index assertion.
+
+The nonzero eigenvalues of
+\(N_\beta F_\beta UU^*F_\beta N_\beta\) equal those of
+\[
+ U^*F_\beta N_\beta F_\beta U
+    =U^*(G+\beta)^{-1}U-H_\beta^{-1}\ge0.
+\]
+This proves \eqref{Enorm}. The calculation of this matrix needs
+only the gamma form and its frame, rather than equality with a
+signed operator. Equality is needed to identify it as the Schur
+correction of \(T_\beta\).
+Finally \(\mathcal P U=0\), so both signed choices satisfy
+the same identity \(T_\beta B_\beta=\beta F_\beta U\).
+The complementary block still contains every prime and polar term.
+\end{proof}
+
+\section{Proof of the fixed-frame rate and explicit constants}
+
+Write \(u_j=\sum_{r=1}^m c_{jr}\widetilde u_r\), and define
+\begin{align}
+ C_j&=\sum_{r=1}^m|c_{jr}|C_{a,r},&
+ A_m&=\sum_{j=1}^mK_U(C_j,\kappa_m),\notag\\
+ q_m&=\|\widetilde u_m\|^2,&
+ \mu_m&=\lambda_{\min}(H_0)>0,\notag\\
+ a_m&=\frac{K_{L,m}}{2q_m}.\label{frameconstants}
+\end{align}
+One explicit regime is
+\begin{equation}\label{regime}
+ \ell_m=\max\left(\ell_{\kappa_m},\ell_{L,m},
+                  \left(\frac{2q_m}{K_{L,m}\mu_m}\right)^{1/\kappa_m}
+             \right).
+\end{equation}
+All definitions in these formulas are specified in
+\eqref{polynomials}--\eqref{lowerconstants} and \eqref{KU}.
+
+\begin{proof}[Proof of Theorem~\ref{main}]
+Injectivity of \(G\) and independence of the finite frame imply
+positive definiteness of \(H_0\). Since \(\kappa_r\le\kappa_m\),
+\[
+ |u_j(x)/w(x)|\le C_j e^{\kappa_m|x|}.
+\]
+Proposition~\ref{upper}, positivity of the resolvent matrix and
+its trace yield
+\[
+ \|U^*(G+\beta)^{-1}U\|
+     \le A_m\bigl(\log(1/\beta)\bigr)^{\kappa_m}
+                         \quad(\log(1/\beta)\ge\ell_{\kappa_m}).
+\]
+The nonnegative matrix difference in \eqref{Enorm} is bounded
+above by this matrix. This proves the upper estimate in
+\eqref{mainbound}. The same trace and spectral inequality prove
+\eqref{mass}.
+
+The normalized vector \(\widetilde u_m/\sqrt{q_m}\) is in the
+frame span. Proposition~\ref{lower} gives
+\[
+ \|U^*(G+\beta)^{-1}U\|
+       \ge\frac{K_{L,m}}{q_m}
+                      \bigl(\log(1/\beta)\bigr)^{\kappa_m}.
+\]
+Also \(\|H_\beta^{-1}\|\le\mu_m^{-1}\).
+The reverse norm inequality, and the last term of \eqref{regime},
+therefore give
+\[
+ \|U^*(G+\beta)^{-1}U-H_\beta^{-1}\|
+       \ge\frac{K_{L,m}}{2q_m}
+                      \bigl(\log(1/\beta)\bigr)^{\kappa_m}.
+\]
+Multiply by \(\beta\) and use \eqref{Enorm}.
+Every bound holds on the stated full parameter interval.
+\end{proof}
+
+\begin{remark}[Evaluation of the frame constants]
+The constants involve finite polynomials, finite sums, and
+convergent integrals and matrices. They do not require a numerical
+positivity assertion. For a definite choice of frame, let
+\(V\) have columns \(\widetilde u_1,\ldots,\widetilde u_m\), set
+\(M_0=V^*V\), and take \(U=VM_0^{-1/2}\).
+Then \(c_{jr}=(M_0^{-1/2})_{rj}\) and
+\[
+ H_0=M_0^{-1/2}M_1M_0^{-1/2},\qquad
+ M_1=V^*GV.
+\]
+The entries of \(M_0\) are ordinary theta integrals.
+Those of \(M_1\) are the polarized full gamma integrals
+\((2\pi)^{-1}\int b(t)\widehat h_r(t)
+\overline{\widehat h_s(t)}\dd t\).
+Their convergence was proved above.
+If an expression without a smallest-eigenvalue symbol is desired,
+use the explicit lower bound
+\[
+ \mu_m\ge \delta_m:=
+       \frac{\det H_0}{(\tr H_0)^{m-1}}>0
+\]
+and replace \(\mu_m\) by \(\delta_m\) in \eqref{regime}.
+The resulting larger threshold is valid for every \(m\), including
+\(m=1\). These are effective fixed-frame definitions, with no
+asserted uniform conditioning as \(m\) grows.
+\end{remark}
+
+\begin{remark}[The first jet]
+The first polynomials are
+\[
+ R_{9/2,1}=90-183q+78q^2-8q^3,\qquad
+ R_{5/2,1}=15-75q+54q^2-8q^3.
+\]
+One may use the general constant \eqref{Ca}, so no separate
+numerical bound is required. The common formula gives
+\(\kappa_1=13/2\), and all first-jet constants and its parameter
+regime follow from the displayed finite definitions.
+There is also a shorter lower-tail estimate for this jet.
+For \(q\ge21\),
+\begin{align*}
+ &R_{9/2,1}(q)-\frac{3}{2q}R_{5/2,1}(q)
+                       +4q^3\left(1-\frac3{2q}\right)\\
+ &\hspace{2em}=-4q^3+84q^2-264q+\frac{405}{2}-\frac{45}{2q}<0.
+\end{align*}
+Since \(\pi e^2>21\), every theta summand at \(x\ge1\) has
+derivative ratio at most \(-4(\pi n^2e^{2x})^3\).
+All original summands are positive, so summing proves
+\[
+ \frac{\Phi'''(x)-\Phi'(x)/4}{\Phi(x)}
+        \le-4\pi^3e^{6x},\qquad
+ \frac{c(x)(\Phi'''(x)-\Phi'(x)/4)}{\Phi(x)}
+        \le-2\pi^3e^{13x/2}\quad(x\ge1).
+\]
+Thus, for the first jet, the lower construction may instead use
+\(R_{0,1}=1\) and \(c_{a,1}=2\pi^3\), leaving
+\eqref{Ca} unchanged and recomputing
+\(R_{*,1},\ell_{L,1},K_{L,1}\) by \eqref{lowerconstants}.
+\end{remark}
+
+\section{Normalization after equality-space elimination}
+
+There is an exact way to place the large correction in context.
+It eliminates the same equality space before gamma normalization.
+The resulting signed form still contains the full arithmetic
+operator, but the finite coupling term has disappeared.
+
+\begin{proposition}[Exact change of metric]\label{metric}
+Let \(P_0=UU^*\), \(N_0=I-P_0\) and \(Y=N_0H_{\rm odd}\).
+Let \(G_\perp\) be the operator of the restricted gamma form on \(Y\),
+and define
+\[
+ C=N_0GU,\qquad
+ A_\perp=G_\perp-N_0D_WN_0.
+\]
+All occurrences of \(N_0D_WN_0\) below are restricted to \(Y\).
+For \(\beta>0\) put
+\begin{align}
+ M_\beta&=G_\perp+\beta-CH_\beta^{-1}C^*\ge\beta,\notag\\
+ J_\beta v&=v-UH_\beta^{-1}C^*v,\notag\\
+ \mathcal O_\beta&=(G+\beta)^{1/2}J_\beta M_\beta^{-1/2}.
+                                                        \label{shortmetric}
+\end{align}
+The map \(\mathcal O_\beta:Y\to N_\beta H_{\rm odd}\) is unitary,
+and the exact complement obeys
+\begin{equation}\label{metriccomplement}
+ \mathcal O_\beta^*\mathcal C_{m,\beta}\mathcal O_\beta
+       =M_\beta^{-1/2}(A_\perp+\beta)M_\beta^{-1/2}.
+\end{equation}
+The right side is understood by its bounded form.
+With
+\[
+ \widehat T_\beta=(G_\perp+\beta)^{-1/2}
+                    (A_\perp+\beta)(G_\perp+\beta)^{-1/2},
+ \qquad
+ V_\beta=(G_\perp+\beta)^{1/2}M_\beta^{-1/2},
+\]
+both operators are bounded, \(V_\beta\) is invertible, and the
+right side of \eqref{metriccomplement} is
+\(V_\beta^*\widehat T_\beta V_\beta\). Moreover
+\begin{equation}\label{metricgrowth}
+ \|V_\beta\|^2-1
+ =\left\|H_\beta^{1/2}
+       \{U^*(G+\beta)^{-1}U-H_\beta^{-1}\}H_\beta^{1/2}\right\|
+ \asymp_m\bigl(\log(1/\beta)\bigr)^{\kappa_m}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The finite projection preserves the gamma form domain because its
+columns lie in \(D(G)\). The restricted form on \(Y\) is closed
+and densely defined. Its off-diagonal gamma block is the bounded
+map \(C\), so the gamma block matrix is
+\[
+ G+\beta=
+ \begin{pmatrix}H_\beta&C^*\\ C&G_\perp+\beta\end{pmatrix}
+           \quad\text{on }\Ran U\oplus Y.
+\]
+Equality \((G-D_W)U=0\) and self-adjointness give
+\[
+ G-D_W=0\oplus A_\perp
+\]
+in the same decomposition. Completing the gamma square gives
+\[
+ \|(G+\beta)^{1/2}(Ua+v)\|^2
+ =\|H_\beta^{1/2}(a+H_\beta^{-1}C^*v)\|^2
+                         +\|M_\beta^{1/2}v\|^2.
+\]
+The infimum over \(a\) is at least \(\beta\|v\|^2\), since
+\(G\ge0\) and \(\|Ua+v\|^2=\|a\|^2+\|v\|^2\).
+Thus \(M_\beta\ge\beta\), and the lift in
+\eqref{shortmetric} is an isometry into \(N_\beta H_{\rm odd}\).
+It is onto: for \(z\in N_\beta H_{\rm odd}\),
+\(x=F_\beta z=Ua+v\) lies in the form domain, and
+\(B_\beta^*z=0\) gives
+\(H_\beta a+C^*v=0\). Hence \(x=J_\beta v\).
+
+Write \(x=J_\beta M_\beta^{-1/2}v\). The form of \(T_\beta\)
+at \(\mathcal O_\beta v\) is the form of \(G-D_W+\beta\) at \(x\).
+Writing \(\mathfrak a_\perp\) for the form of \(A_\perp\),
+the exact kernel decomposition gives
+\[
+ \langle T_\beta\mathcal O_\beta v,\mathcal O_\beta v\rangle
+ =\mathfrak a_\perp(M_\beta^{-1/2}v)
+                   +\beta\|M_\beta^{-1/2}v\|^2
+                         +\beta\|P_0x\|^2.
+\]
+By \eqref{E}, the form of \(E_{m,\beta}\) at the same vector is
+exactly \(\beta\|U^*F_\beta\mathcal O_\beta v\|^2
+=\beta\|P_0x\|^2\).
+Subtracting proves \eqref{metriccomplement}.
+
+Since \(G_\perp+\beta-M_\beta=CH_\beta^{-1}C^*\) is bounded,
+their strictly positive form norms are equivalent for fixed
+\(\beta\). This makes \(V_\beta\) and its inverse bounded and
+proves the stated congruence.
+The block inverse of the strictly positive gamma matrix yields
+\[
+ U^*(G+\beta)^{-1}U-H_\beta^{-1}
+           =H_\beta^{-1}C^*M_\beta^{-1}CH_\beta^{-1}.
+\]
+Also
+\[
+ V_\beta^*V_\beta
+     =I+M_\beta^{-1/2}CH_\beta^{-1}C^*M_\beta^{-1/2}.
+\]
+The nonzero spectra of the two finite-rank products give the
+norm identity in \eqref{metricgrowth}.
+For \(0<\beta\le1\), the eigenvalues of \(H_\beta\) lie between
+\(\mu_m\) and \(\|H_0\|+1\). Theorem~\ref{main} and
+\eqref{Enorm} now give the two-sided order in
+\eqref{metricgrowth}.
+\end{proof}
+
+\section{Scope and relation to spectral positivity}
+
+The positive pivot \(\beta H_\beta^{-1}\) has norm of order
+\(\beta\) for a fixed frame. The subtracted correction
+\eqref{E} has the larger order
+\(\beta(\log(1/\beta))^{4m+5/2}\).
+It nevertheless tends to zero. Thus a bound \(C_m\beta\) on this
+particular correction cannot hold. A sign conclusion for
+\eqref{complement} requires control of the retained complementary
+block at the same scale or an exact cancellation within that block.
+The correction alone is not a negative direction of the full Weil
+form. Its magnitude also does not exclude a different normalization
+or elimination strategy. Proposition~\ref{metric} gives such a
+strategy explicitly: it removes the finite kernel block first,
+while the same logarithmic growth appears in the change of gamma
+metric. Neither normalization determines the sign of \(A_\perp\).
+
+Recent work of Kim et al.\ \cite{Kim} treats numerical finite-interval
+realizations of Suzuki's operator and its archimedean spectral law.
+That setting and the present weighted whole-line resolvent have
+different parameters and domains. The estimate here concerns
+\(\beta\downarrow0\) for an exact fixed theta-jet span; it is not a
+finite-interval eigenvalue computation.
+
+The contribution proved here is the two-sided resolvent and
+coupling order with a constructive range approximation. This
+article makes no assertion of priority over all related weighted
+resolvent estimates. It provides no uniform constants for a growing
+frame, no matching pointwise spectral-mass lower bound, and no sign
+for \(\mathcal C_{m,\beta}\). In particular it proves neither
+unconditional positivity of all Li coefficients nor RH.
+
+\begin{thebibliography}{9}
+\bibitem{BL}
+E.~Bombieri and J.~C.~Lagarias,
+Complements to Li's criterion for the Riemann hypothesis,
+J. Number Theory \textbf{77} (1999), 274--287.
+\href{https://websites.umich.edu/~lagarias/doc/bombieri.pdf}
+{Author manuscript}.
+\bibitem{Romik}
+D.~Romik,
+Orthogonal polynomial expansions for the Riemann xi function,
+\href{https://arxiv.org/abs/1902.06330v3}{arXiv:1902.06330v3}.
+\bibitem{SuzukiLi}
+M.~Suzuki,
+Li coefficients as norms of functions in a model space.
+\href{https://arxiv.org/abs/2301.05779v2}{arXiv:2301.05779v2} (2023).
+\bibitem{SuzukiScrew}
+M.~Suzuki,
+Aspects of the screw function corresponding to the Riemann zeta-function,
+J. London Math. Soc. \textbf{108} (2023), 1448--1487.
+\href{https://arxiv.org/abs/2206.03682v4}{arXiv:2206.03682v4}.
+\bibitem{SuzukiWeil}
+M.~Suzuki,
+Weil's quadratic form via the screw function.
+\href{https://arxiv.org/abs/2606.09096v3}{arXiv:2606.09096v3} (2026).
+\bibitem{Kim}
+T.~Kim, Y.~Hong, M.~Kim, S.~Choi, J.~Jang, and M.~Kim,
+A numerical realization of Suzuki's Weil-quadratic-form operator:
+the archimedean spectral law, its universality, and an operator form
+of Weil's positivity criterion.
+\href{https://arxiv.org/abs/2607.24830v3}{arXiv:2607.24830v3} (2026).
+\bibitem{Feshbach}
+G.~Dusson, I.~M.~Sigal, and B.~Stamm,
+The Feshbach--Schur map and perturbation theory.
+\href{https://arxiv.org/abs/2105.02058v1}{arXiv:2105.02058v1} (2021).
+\end{thebibliography}
+\end{document}
